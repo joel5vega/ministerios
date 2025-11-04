@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 export default function TagFilter({ tags, selectedTags, onToggleTag }) {
   return (

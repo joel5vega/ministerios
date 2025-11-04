@@ -4,7 +4,7 @@ import { fetchMinistries } from './services/ministryService';
 import SearchBar from './components/SearchBar';
 import TagFilter from './components/TagFilter';
 import MinistriesGrid from './components/MinistriesGrid';
-
+import './App.css';
 const COMMON_TAGS = ['worship', 'youth', 'mission', 'family', 'community', 'outreach'];
 
 function App() {

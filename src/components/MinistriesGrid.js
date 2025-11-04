@@ -1,5 +1,7 @@
 // import React from 'react';
 import MinistryCard from './MinistryCard';
+import '../App.css';
+
 // import { useEffect } from 'react';
 // import { db } from '../firebase';
 // import { collection, getDocs } from 'firebase/firestore';
