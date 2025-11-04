@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Directorio </h1>
+        <h1>Directorio de ministerios </h1>
         <p>Find ministries and Christian groups in your area</p>
       </header>
       <SearchBar
