@@ -1,5 +1,6 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
+import { fetchMinistries } from './services/ministryService';
 import SearchBar from './components/SearchBar';
 import TagFilter from './components/TagFilter';
 import MinistriesGrid from './components/MinistriesGrid';
