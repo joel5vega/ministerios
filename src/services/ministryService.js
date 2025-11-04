@@ -16,8 +16,25 @@ export async function deleteMinistry(id) {
   return await deleteDoc(doc(db, 'ministries', id));
 }
 
-// Fetch all
+
+// Fetch all ministries, with verbose logging
 export async function fetchMinistries() {
-  const querySnapshot = await getDocs(collection(db, 'ministries'));
-  return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  console.log('[MinistryService] Fetching ministries...');
+  try {
+    const colRef = collection(db, "ministries");
+    const querySnapshot = await getDocs(colRef);
+    console.log(`[MinistryService] Fetched ${querySnapshot.size} ministries.`);
+    const ministries = querySnapshot.docs.map(doc => {
+      console.log(`[MinistryService] Ministry doc:`, doc.id, doc.data());
+      return {
+        id: doc.id,
+        ...doc.data()
+      };
+    });
+    console.log('[MinistryService] Ministries array:', ministries);
+    return ministries;
+  } catch (error) {
+    console.error('[MinistryService] Error fetching ministries:', error);
+    throw error;
+  }
 }

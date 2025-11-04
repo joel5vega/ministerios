@@ -19,9 +19,10 @@ function App() {
       setLoading(true);
       try {
         const data = await fetchMinistries();
+        console.log('[App] Ministries received:', data);
         setMinistries(data);
       } catch (e) {
-        console.error("Error fetching ministries: ", e);
+        console.error('[App] Error in loadMinistries:', e);
       }
       setLoading(false);
     }
