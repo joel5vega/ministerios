@@ -1,9 +1,15 @@
 import { db } from '../firebase';
-import { collection, addDoc, updateDoc, deleteDoc, doc, getDocs } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, deleteDoc, doc, getDocs,serverTimestamp  } from 'firebase/firestore';
 
-// Add
+// Add new ministry
 export async function addMinistry(data) {
-  return await addDoc(collection(db, 'ministries'), data);
+  // You can validate/sanitize data here before sending to Firestore
+  return await addDoc(collection(db, "ministerios"), {
+    ...data,
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+    active: true
+  });
 }
 
 // Update

@@ -126,3 +126,49 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+.ministry-form {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  max-width: 500px;
+}
+.ministry-form h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+.ministry-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+.ministry-form input,
+.ministry-form textarea {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0.6em;
+  border: 2px solid var(--secondary);
+  border-radius: 7px;
+  font-size: 1em;
+}
+.ministry-form button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.7em 2em;
+  border-radius: 7px;
+  font-size: 1em;
+  cursor: pointer;
+}
+.form-error {
+  color: red;
+  margin-top: .5em;
+  font-size: 0.97em;
+}
+.form-success {
+  color: green;
+  margin-top: .5em;
+  font-size: 0.97em;
+}

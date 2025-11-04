@@ -4,6 +4,7 @@ import { fetchMinistries } from './services/ministryService';
 import SearchBar from './components/SearchBar';
 import TagFilter from './components/TagFilter';
 import MinistriesGrid from './components/MinistriesGrid';
+import MinistryForm from './components/MinistryForm';
 import './App.css';
 const COMMON_TAGS = ['worship', 'youth', 'mission', 'family', 'community', 'outreach'];
 
@@ -12,22 +13,24 @@ function App() {
   const [selectedTags, setSelectedTags] = useState([]);
   const [ministries, setMinistries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+const [error, setError] = useState('');
 
-  // Simulated initial data (replace with Firebase fetch in real app)
- useEffect(() => {
-    async function loadMinistries() {
-      setLoading(true);
-      try {
-        const data = await fetchMinistries();
-        console.log('[App] Ministries received:', data);
-        setMinistries(data);
-      } catch (e) {
-        console.error('[App] Error in loadMinistries:', e);
-      }
-      setLoading(false);
+useEffect(() => {
+  async function loadMinistries() {
+    setLoading(true);
+    setError('');
+    try {
+      const data = await fetchMinistries();
+      setMinistries(data);
+    } catch (e) {
+      setError('Failed to load ministries. Please try again.');
+      console.error('[App] Error in loadMinistries:', e);
     }
-    loadMinistries();
-  }, []);
+    setLoading(false);
+  }
+  loadMinistries();
+}, [refresh]);
   // Filtering logic
   const filteredMinistries = ministries.filter((ministry) => {
     const searchLower = searchTerms.toLowerCase();
@@ -63,6 +66,8 @@ function App() {
           )
         }
       />
+      {error && <div className="error">{error}</div>}
+       <MinistryForm onAdded={() => setRefresh(r => !r)} />
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
