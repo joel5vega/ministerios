@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import MinistryCard from './MinistryCard';
-import { useEffect } from 'react';
-import { db } from '../firebase';
-import { collection, getDocs } from 'firebase/firestore';
+// import { useEffect } from 'react';
+// import { db } from '../firebase';
+// import { collection, getDocs } from 'firebase/firestore';
 
 // function MinistriesFetcher({ setMinistries, setLoading }) {
 //   useEffect(() => {
