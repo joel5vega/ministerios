@@ -21,9 +21,9 @@ export async function deleteMinistry(id) {
 export async function fetchMinistries() {
   console.log('[MinistryService] Fetching ministries...');
   try {
-    const colRef = collection(db, "ministries");
+    const colRef = collection(db, "ministerios");
     const querySnapshot = await getDocs(colRef);
-    console.log(`[MinistryService] Fetched ${querySnapshot.size} ministries.`);
+    console.log(`[MinistryService] Fetched ${querySnapshot.size} ministerios.`);
     const ministries = querySnapshot.docs.map(doc => {
       console.log(`[MinistryService] Ministry doc:`, doc.id, doc.data());
       return {
