@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ministry-directory/static/css/main.f855e6bc.css",
+    "main.js": "/ministry-directory/static/js/main.aff8c5e1.js",
+    "static/js/453.17e5fbca.chunk.js": "/ministry-directory/static/js/453.17e5fbca.chunk.js",
+    "static/media/logo.svg": "/ministry-directory/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/ministry-directory/index.html",
+    "main.f855e6bc.css.map": "/ministry-directory/static/css/main.f855e6bc.css.map",
+    "main.aff8c5e1.js.map": "/ministry-directory/static/js/main.aff8c5e1.js.map",
+    "453.17e5fbca.chunk.js.map": "/ministry-directory/static/js/453.17e5fbca.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.aff8c5e1.js"
+  ]
+}
