@@ -13,25 +13,19 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   // Simulated initial data (replace with Firebase fetch in real app)
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setMinistries([
-        {
-          id: '1',
-          name: 'Grace Community Church',
-          description: 'Welcoming community focused on worship and service',
-          tags: ['worship', 'community', 'family'],
-          phone: '555-0123',
-          email: 'contact@grace.org',
-          website: 'https://grace.org',
-        },
-        // Add more ministries here
-      ]);
+ useEffect(() => {
+    async function loadMinistries() {
+      setLoading(true);
+      try {
+        const data = await fetchMinistries();
+        setMinistries(data);
+      } catch (e) {
+        console.error("Error fetching ministries: ", e);
+      }
       setLoading(false);
-    }, 1000);
+    }
+    loadMinistries();
   }, []);
-
   // Filtering logic
   const filteredMinistries = ministries.filter((ministry) => {
     const searchLower = searchTerms.toLowerCase();
