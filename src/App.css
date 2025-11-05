@@ -127,48 +127,75 @@ body {
   }
 }
 .ministry-form {
-  margin: 2rem 0;
-  padding: 1rem;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
   max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem 1rem 1rem 1rem;
+  border-top: 8px solid var(--primary, #3366cc);
 }
+
 .ministry-form h2 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  color: var(--primary);
+  font-size: 1.5rem;
+  color: var(--primary, #3366cc);
+  margin-bottom: 1.2rem;
 }
+
 .ministry-form label {
   display: block;
   font-weight: bold;
-  margin-bottom: 0.2em;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  color: #13417b;
+  font-size: 1.13rem;
 }
+
 .ministry-form input,
 .ministry-form textarea {
   width: 100%;
-  margin-bottom: 1em;
-  padding: 0.6em;
-  border: 2px solid var(--secondary);
-  border-radius: 7px;
-  font-size: 1em;
+  padding: 0.85em 0.9em;
+  border: 2px solid #e6e6ca;
+  border-radius: 8px;
+  font-size: 1.09em;
+  outline: none;
+  background: #fcfcf7;
+  transition: border-color 0.2s;
+  margin-bottom: 0.6em;
 }
+
+.ministry-form input:focus,
+.ministry-form textarea:focus {
+  border-color: var(--primary, #3366cc);
+  background: #fff;
+}
+
 .ministry-form button {
-  background: var(--accent);
+  background: var(--primary, #3366cc);
   color: white;
   border: none;
-  padding: 0.7em 2em;
-  border-radius: 7px;
-  font-size: 1em;
+  padding: 0.9em 2em;
+  border-radius: 8px;
+  font-size: 1.07em;
+  font-weight: bold;
   cursor: pointer;
+  margin-top: 1.2em;
+  box-shadow: 0 2px 6px rgba(51,102,204,0.1);
+  transition: background 0.2s;
 }
+.ministry-form button:hover {
+  background: var(--secondary, #f4b400);
+  color: var(--primary, #3366cc);
+}
+
 .form-error {
-  color: red;
-  margin-top: .5em;
-  font-size: 0.97em;
+  color: #d91b2b;
+  font-size: 1em;
+  margin-top: 0.5em;
 }
+
 .form-success {
-  color: green;
-  margin-top: .5em;
-  font-size: 0.97em;
+  color: #1ba53f;
+  font-size: 1em;
+  margin-top: 0.5em;
 }
