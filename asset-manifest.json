@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ministerios/static/css/main.add208fa.css",
-    "main.js": "/ministerios/static/js/main.801266ee.js",
+    "main.css": "/ministerios/static/css/main.4cf41d79.css",
+    "main.js": "/ministerios/static/js/main.caca15e5.js",
     "static/js/453.17e5fbca.chunk.js": "/ministerios/static/js/453.17e5fbca.chunk.js",
     "index.html": "/ministerios/index.html",
-    "main.add208fa.css.map": "/ministerios/static/css/main.add208fa.css.map",
-    "main.801266ee.js.map": "/ministerios/static/js/main.801266ee.js.map",
+    "main.4cf41d79.css.map": "/ministerios/static/css/main.4cf41d79.css.map",
+    "main.caca15e5.js.map": "/ministerios/static/js/main.caca15e5.js.map",
     "453.17e5fbca.chunk.js.map": "/ministerios/static/js/453.17e5fbca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.add208fa.css",
-    "static/js/main.801266ee.js"
+    "static/css/main.4cf41d79.css",
+    "static/js/main.caca15e5.js"
   ]
 }
