@@ -17,24 +17,12 @@ export default function Navbar({ onNavigate, user, onLogin, onLogout }) {
           <img src="/ministerios/android-chrome-512x512.png" alt="Ministerios Logo" className="brand-logo-img" />
         </div>
 
-        <button 
-          className="navbar-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation"
-        >
-          ☰
-        </button>
-        <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-          <li onClick={() => handleNavClick('home')}>Inicio</li>
-          <li onClick={() => handleNavClick('ministries')}>Explorar</li>
-          <li onClick={() => handleNavClick('add')}>Agregar</li>
-        </ul>
+        
 
         <div className="navbar-auth">
   {!user ? (
     <button className="navbar-login-btn" onClick={onLogin}>
       <img src="/ministerios/google-icon.svg" className="login-icon" alt="Google sign in" />
-      Iniciar sesión
     </button>
   ) : (
     <>
@@ -68,7 +56,18 @@ export default function Navbar({ onNavigate, user, onLogin, onLogout }) {
     </>
   )}
 </div>
-
+<button 
+          className="navbar-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
+        <ul className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+          <li onClick={() => handleNavClick('home')}>Inicio</li>
+          <li onClick={() => handleNavClick('ministries')}>Explorar</li>
+          <li onClick={() => handleNavClick('add')}>Agregar</li>
+        </ul>
       </div>
     </nav>
   );
