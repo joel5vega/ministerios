@@ -6,6 +6,8 @@ import TagFilter from './components/TagFilter';
 import MinistriesGrid from './components/MinistriesGrid';
 import MinistryForm from './components/MinistryForm';
 import './App.css';
+import { onAuthStateChanged, loginWithGoogle, logout } from './services/authService';
+import Profile from './components/Profile';
 
 const COMMON_TAGS = ['worship', 'youth', 'mission', 'family', 'community', 'outreach'];
 
@@ -20,7 +22,14 @@ function App() {
   const homeRef = useRef(null);
   const ministriesRef = useRef(null);
   const addRef = useRef(null);
+  const profileRef = useRef(null);
 
+const [user, setUser] = useState(null);
+
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(setUser);
+  return unsubscribe;
+}, []);
   useEffect(() => {
     async function loadMinistries() {
       setLoading(true);
@@ -57,10 +66,14 @@ function App() {
   return (
     <div className="app">
       <Navbar
+        user={user}
+  onLogin={loginWithGoogle}
+  onLogout={logout}
         onNavigate={(section) => {
           if (section === 'home') scrollToSection(homeRef);
           if (section === 'ministries') scrollToSection(ministriesRef);
           if (section === 'add') scrollToSection(addRef);
+            if (section === 'profile') scrollToSection(profileRef);
         }}
       />
 
@@ -97,11 +110,17 @@ function App() {
           <MinistriesGrid ministries={filteredMinistries} />
         )}
       </section>
-
+<section ref={profileRef} className="section profile-section">
+  <Profile user={user} />
+</section>
       {/* Add Ministry Section */}
       <section ref={addRef} className="section add-section">
         <h2 className="section-title">Agregar Ministerio</h2>
-        <MinistryForm onAdded={() => setRefresh(r => !r)} />
+        {user ? (
+  <MinistryForm onAdded={() => setRefresh(r => !r)} user={user} />
+) : (
+  <div className="section-block">Please log in to add a ministry.</div>
+)}
       </section>
     </div>
   );
