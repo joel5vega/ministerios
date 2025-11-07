@@ -14,7 +14,7 @@ export default function Navbar({ onNavigate, user, onLogin, onLogout }) {
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-brand-logo" onClick={() => handleNavClick('home')}>
-          <img src="/android-chrome-512x512.png" alt="Ministerios Logo" className="brand-logo-img" />
+          <img src="/ministerios/android-chrome-512x512.png" alt="Ministerios Logo" className="brand-logo-img" />
         </div>
 
         <button 
@@ -33,7 +33,7 @@ export default function Navbar({ onNavigate, user, onLogin, onLogout }) {
         <div className="navbar-auth">
   {!user ? (
     <button className="navbar-login-btn" onClick={onLogin}>
-      <img src="/google-icon.svg" className="login-icon" alt="Google sign in" />
+      <img src="/ministerios/google-icon.svg" className="login-icon" alt="Google sign in" />
       Iniciar sesión
     </button>
   ) : (
