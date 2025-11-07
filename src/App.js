@@ -9,7 +9,7 @@ import './App.css';
 import { onAuthStateChanged, loginWithGoogle, logout } from './services/authService';
 import Profile from './components/Profile';
 
-const COMMON_TAGS = ['worship', 'youth', 'mission', 'family', 'community', 'outreach'];
+const COMMON_TAGS = ['servicio', 'jovenes', 'misiones', 'familia', 'comunidad', 'evangelismo','discipulado'];
 
 function App() {
   const [searchTerms, setSearchTerms] = useState('');
