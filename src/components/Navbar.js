@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Navbar.css'; // Keep your existing CSS or adapt as needed
+import './Navbar.css';
 
 export default function Navbar({ onNavigate, user, onLogin, onLogout }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +12,11 @@ export default function Navbar({ onNavigate, user, onLogin, onLogout }) {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* LOGO: replace src with your logo path */}
+        {/* Logo */}
         <div className="navbar-brand-logo" onClick={() => handleNavClick('home')}>
-          <img src="/logo192.png" alt="Ministerios Logo" height={36} style={{ verticalAlign: 'middle', cursor: 'pointer' }} />
+          <img src="/android-chrome-512x512.png" alt="Ministerios Logo" className="brand-logo-img" />
         </div>
+
         <button 
           className="navbar-toggle"
           onClick={() => setIsOpen(!isOpen)}
@@ -27,29 +28,47 @@ export default function Navbar({ onNavigate, user, onLogin, onLogout }) {
           <li onClick={() => handleNavClick('home')}>Inicio</li>
           <li onClick={() => handleNavClick('ministries')}>Explorar</li>
           <li onClick={() => handleNavClick('add')}>Agregar</li>
-          {user && <li onClick={() => handleNavClick('profile')}>Perfil</li>}
         </ul>
-        {/* Auth Controls */}
+
         <div className="navbar-auth">
-          {user ? (
-            <button className="navbar-avatar-btn" onClick={onLogout} title="Logout">
-              {/* Show avatar if available */}
-              <img
-                src={user.photoURL || '/default-avatar.png'}
-                alt={user.displayName || 'User'}
-                className="navbar-avatar"
-                height={32}
-                width={32}
-                style={{ borderRadius: '50%', objectFit: 'cover', verticalAlign: 'middle' }}
-              /> 
-            </button>
-          ) : (
-            <button className="navbar-login-btn" onClick={onLogin}>
-              <img src="/google-icon.svg" height={18} alt="Google sign in" style={{ verticalAlign: 'middle', marginRight: 6 }} />
-              Iniciar sesión
-            </button>
-          )}
-        </div>
+  {!user ? (
+    <button className="navbar-login-btn" onClick={onLogin}>
+      <img src="/google-icon.svg" className="login-icon" alt="Google sign in" />
+      Iniciar sesión
+    </button>
+  ) : (
+    <>
+      <img
+        src={user.photoURL || "/default-avatar.png"}
+        alt="Perfil"
+        className="navbar-avatar"
+        height={34}
+        width={34}
+        onClick={() => handleNavClick('profile')}
+        title={user.displayName || "Profile"}
+        style={{ cursor: "pointer" }}
+      />
+      <button
+        className="navbar-logout-btn"
+        onClick={onLogout}
+        title="Cerrar sesión"
+        style={{
+          marginLeft: 8,
+          background: "none",
+          border: "none",
+          color: "#fff",
+          fontSize: "1.15em",
+          cursor: "pointer",
+          padding: "0 12px",
+          borderRadius: "8px"
+        }}
+      >
+        ⎋
+      </button>
+    </>
+  )}
+</div>
+
       </div>
     </nav>
   );
