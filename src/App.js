@@ -1,11 +1,12 @@
-// src/App.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { fetchMinistries } from './services/ministryService';
+import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
 import TagFilter from './components/TagFilter';
 import MinistriesGrid from './components/MinistriesGrid';
 import MinistryForm from './components/MinistryForm';
 import './App.css';
+
 const COMMON_TAGS = ['worship', 'youth', 'mission', 'family', 'community', 'outreach'];
 
 function App() {
@@ -14,65 +15,94 @@ function App() {
   const [ministries, setMinistries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [refresh, setRefresh] = useState(false);
-const [error, setError] = useState('');
 
-useEffect(() => {
-  async function loadMinistries() {
-    setLoading(true);
-    setError('');
-    try {
-      const data = await fetchMinistries();
-      setMinistries(data);
-    } catch (e) {
-      setError('Failed to load ministries. Please try again.');
-      console.error('[App] Error in loadMinistries:', e);
+  // Refs for sections
+  const homeRef = useRef(null);
+  const ministriesRef = useRef(null);
+  const addRef = useRef(null);
+
+  useEffect(() => {
+    async function loadMinistries() {
+      setLoading(true);
+      try {
+        const data = await fetchMinistries();
+        console.log('[App] Ministries received:', data);
+        setMinistries(data);
+      } catch (e) {
+        console.error('[App] Error in loadMinistries:', e);
+      }
+      setLoading(false);
     }
-    setLoading(false);
-  }
-  loadMinistries();
-}, [refresh]);
+    loadMinistries();
+  }, [refresh]);
+
   // Filtering logic
   const filteredMinistries = ministries.filter((ministry) => {
     const searchLower = searchTerms.toLowerCase();
     const matchesSearch =
       ministry.name.toLowerCase().includes(searchLower) ||
       ministry.description.toLowerCase().includes(searchLower) ||
-      ministry.tags.some((tag) => tag.toLowerCase().includes(searchLower));
+      (ministry.tags && ministry.tags.some((tag) => tag.toLowerCase().includes(searchLower)));
     const matchesTag =
       selectedTags.length === 0 ||
-      selectedTags.some((tag) => ministry.tags.includes(tag));
+      (ministry.tags && selectedTags.some((tag) => ministry.tags.includes(tag)));
     return matchesSearch && matchesTag;
   });
 
+  // Scroll to section
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <div className="app">
-      <header className="header">
-        <h1>Directorio de ministerios </h1>
-        <p>Find ministries and Christian groups in your area</p>
-      </header>
-      <SearchBar
-        value={searchTerms}
-        onChange={setSearchTerms}
-        onSearch={() => {}}
+      <Navbar
+        onNavigate={(section) => {
+          if (section === 'home') scrollToSection(homeRef);
+          if (section === 'ministries') scrollToSection(ministriesRef);
+          if (section === 'add') scrollToSection(addRef);
+        }}
       />
-      <TagFilter
-        tags={COMMON_TAGS}
-        selectedTags={selectedTags}
-        onToggleTag={(tag) =>
-          setSelectedTags((prev) =>
-            prev.includes(tag)
-              ? prev.filter((t) => t !== tag)
-              : [...prev, tag]
-          )
-        }
-      />
-      {error && <div className="error">{error}</div>}
-       <MinistryForm onAdded={() => setRefresh(r => !r)} />
-      {loading ? (
-        <div className="loading">Loading...</div>
-      ) : (
-        <MinistriesGrid ministries={filteredMinistries} />
-      )}
+
+      {/* Home Section */}
+      <section ref={homeRef} className="section home-section">
+        <header className="header">
+          <h1>Directorio de Ministerios</h1>
+          <p>Encuentra oportunidades de servicio para ejercer tus dones espirituales</p>
+        </header>
+      </section>
+
+      {/* Ministries Section */}
+      <section ref={ministriesRef} className="section ministries-section">
+        <h2 className="section-title">Explorar Ministerios</h2>
+        <SearchBar
+          value={searchTerms}
+          onChange={setSearchTerms}
+          onSearch={() => {}}
+        />
+        <TagFilter
+          tags={COMMON_TAGS}
+          selectedTags={selectedTags}
+          onToggleTag={(tag) =>
+            setSelectedTags((prev) =>
+              prev.includes(tag)
+                ? prev.filter((t) => t !== tag)
+                : [...prev, tag]
+            )
+          }
+        />
+        {loading ? (
+          <div className="loading">Cargando...</div>
+        ) : (
+          <MinistriesGrid ministries={filteredMinistries} />
+        )}
+      </section>
+
+      {/* Add Ministry Section */}
+      <section ref={addRef} className="section add-section">
+        <h2 className="section-title">Agregar Ministerio</h2>
+        <MinistryForm onAdded={() => setRefresh(r => !r)} />
+      </section>
     </div>
   );
 }
