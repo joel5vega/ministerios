@@ -110,18 +110,19 @@ useEffect(() => {
           <MinistriesGrid ministries={filteredMinistries} />
         )}
       </section>
-<section ref={profileRef} className="section profile-section">
-  <Profile user={user} />
-</section>
+
       {/* Add Ministry Section */}
       <section ref={addRef} className="section add-section">
         <h2 className="section-title">Agregar Ministerio</h2>
         {user ? (
   <MinistryForm onAdded={() => setRefresh(r => !r)} user={user} />
 ) : (
-  <div className="section-block">Please log in to add a ministry.</div>
+  <div className="section-block">Ingrese para añadir ministerio</div>
 )}
       </section>
+      <section ref={profileRef} className="section profile-section">
+  <Profile user={user} />
+</section>
     </div>
   );
 }

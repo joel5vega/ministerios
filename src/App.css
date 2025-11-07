@@ -4,8 +4,8 @@
 }
 
 :root {
-  --primary: #1B5299;
-  --secondary: #F1ECCE;
+  --primary: hsl(214, 70%, 35%);
+  --secondary: #5cc53c;
   --accent: #9FC2CC;
 }
 

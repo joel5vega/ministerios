@@ -75,7 +75,7 @@ export default function MinistryForm({ onAdded }) {
         <input name="name" value={form.name} onChange={handleChange} required />
       </div>
       <div>
-        <label>Descripión*</label>
+        <label>Descripción*</label>
         <textarea name="description" value={form.description} onChange={handleChange} required />
       </div>
       <div>
@@ -95,10 +95,10 @@ export default function MinistryForm({ onAdded }) {
         <input name="tags" value={form.tags} onChange={handleChange} />
       </div>
       <div>
-        <label>Imagen</label>
+        <label>Logo</label>
         <input type="file" accept="image/*" onChange={handleFileChange} />
       </div>
-      <button type="submit" disabled={loading}>{loading ? 'Adding...' : 'Add Ministry'}</button>
+      <button type="submit" disabled={loading}>{loading ? 'Añadiendo...' : 'Añadir ministerio'}</button>
       {error && <div className="form-error">{error}</div>}
       {success && <div className="form-success">{success}</div>}
     </form>
