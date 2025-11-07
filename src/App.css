@@ -234,3 +234,10 @@ body {
   color: var(--primary, #3366cc);
   margin-bottom: 2rem;
 }
+.ministry-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}

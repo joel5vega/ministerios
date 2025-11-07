@@ -8,6 +8,9 @@ export default function MinistryCard({ ministry }) {
       <h3>{name}</h3>
       <p>{description}</p>
       <div className="tags">
+        {ministry.imageUrl && (
+        <img src={ministry.imageUrl} alt={ministry.name} className="ministry-image" />
+      )}
         {tags.map((tag) => (
           <span className="tag" key={tag}>{tag}</span>
         ))}
