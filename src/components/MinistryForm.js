@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { addMinistry } from '../services/ministryService';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db } from '../firebase';
 
 const initialState = {
   name: '',
