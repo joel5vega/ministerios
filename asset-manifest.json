@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ministerios/static/css/main.f11fb35f.css",
+    "main.css": "/ministerios/static/css/main.81fa3cb7.css",
     "main.js": "/ministerios/static/js/main.2f9db32f.js",
     "static/js/453.17e5fbca.chunk.js": "/ministerios/static/js/453.17e5fbca.chunk.js",
     "index.html": "/ministerios/index.html",
-    "main.f11fb35f.css.map": "/ministerios/static/css/main.f11fb35f.css.map",
+    "main.81fa3cb7.css.map": "/ministerios/static/css/main.81fa3cb7.css.map",
     "main.2f9db32f.js.map": "/ministerios/static/js/main.2f9db32f.js.map",
     "453.17e5fbca.chunk.js.map": "/ministerios/static/js/453.17e5fbca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f11fb35f.css",
+    "static/css/main.81fa3cb7.css",
     "static/js/main.2f9db32f.js"
   ]
 }
