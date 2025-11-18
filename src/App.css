@@ -99,14 +99,15 @@ body {
   margin: 0.6rem 0;
 }
 .tag {
-  display: inline-block; /* or inline if preferred */
+  display: inline-block;
   background: var(--secondary);
   color: var(--primary);
-  padding: 0.3em 1em;
-  border-radius: 10px;
-  font-size: 1em;
-  margin: 0.2em 0.3em 0.2em 0;
-  vertical-align: middle;
+  padding: 0.32em 1.1em;
+  border-radius: 15px;
+  font-size: 0.97em;
+  margin: 0.12em 0.09em 0.12em 0;
+  align-self: flex-start; /* Ensures they don't stretch */
+  box-shadow: 0 1px 6px rgba(24,48,89,0.05);
 }
 .contact-info {
   font-size: 0.95rem;
@@ -234,6 +235,7 @@ body {
   border-radius: 10px;
   margin-bottom: 0.8rem;
   box-shadow: 0 2px 8px rgba(24,48,89,0.07);
+  display: block;
 }
 .profile-section {
   background: var(--background-light);
