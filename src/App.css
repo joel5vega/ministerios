@@ -98,11 +98,14 @@ body {
   gap: 0.4rem;
 }
 .tag {
+  display: inline-block; /* or inline if preferred */
   background: var(--secondary);
   color: var(--primary);
-  padding: 0.2rem 1rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
+  padding: 0.3em 1em;
+  border-radius: 10px;
+  font-size: 1em;
+  margin: 0.2em 0.3em 0.2em 0;
+  vertical-align: middle;
 }
 .contact-info {
   font-size: 0.95rem;
