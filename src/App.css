@@ -1,18 +1,19 @@
-/* Make all elements use border-box by default */
-*, *:before, *:after {
-  box-sizing: border-box;
+:root {
+  --primary: #183059;
+  --secondary: #D1B1CB;
+  --accent: #DDCAD9;
+  --background: #E5E9EC;
+  --background-light: #EAFDF8;
 }
 
-:root {
-  --primary: hsl(214, 70%, 35%);
-  --secondary: #5cc53c;
-  --accent: #9FC2CC;
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: var(--accent);
+  background: var(--background-light);
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
@@ -23,7 +24,7 @@ body {
 .header {
   padding: 1rem;
   background: var(--primary);
-  color: white;
+  color: var(--background-light);
   text-align: center;
   border-radius: 10px;
 }
@@ -42,7 +43,7 @@ body {
 }
 .search-btn {
   background: var(--primary);
-  color: white;
+  color: var(--background-light);
   border: none;
   padding: 0.8rem 1.2rem;
   border-radius: 8px;
@@ -61,7 +62,7 @@ body {
 }
 .tag-btn {
   border: 2px solid var(--primary);
-  background: white;
+  background: var(--background-light);
   color: var(--primary);
   border-radius: 20px;
   padding: 0.6rem 1rem;
@@ -72,23 +73,23 @@ body {
 .tag-btn.active,
 .tag-btn:hover {
   background: var(--primary);
-  color: white;
+  color: var(--background-light);
 }
 .ministries-grid {
   display: grid;
-  grid-template-columns: 1fr; /* single column for mobile */
+  grid-template-columns: 1fr;
   gap: 1.2rem;
 }
 .ministry-card {
-  background: white;
+  background: var(--background-light);
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(24,48,89,0.07);
   border-left: 6px solid var(--primary);
   transition: box-shadow 0.3s;
 }
 .ministry-card:hover {
-  box-shadow: 0 4px 18px rgba(51,102,204,0.12);
+  box-shadow: 0 4px 18px rgba(24,48,89,0.13);
 }
 .tags {
   margin: 0.6rem 0;
@@ -98,7 +99,7 @@ body {
 }
 .tag {
   background: var(--secondary);
-  color: white;
+  color: var(--primary);
   padding: 0.2rem 1rem;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -132,52 +133,47 @@ body {
   }
 }
 .ministry-form {
-  background: white;
+  background: var(--background-light);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  box-shadow: 0 2px 8px rgba(24,48,89,0.10);
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem 1rem 1rem 1rem;
-  border-top: 8px solid var(--primary, #3366cc);
+  border-top: 8px solid var(--primary);
 }
-
 .ministry-form h2 {
   font-size: 1.5rem;
-  color: var(--primary, #3366cc);
+  color: var(--primary);
   margin-bottom: 1.2rem;
 }
-
 .ministry-form label {
   display: block;
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 0.4rem;
-  color: #13417b;
+  color: var(--primary);
   font-size: 1.13rem;
 }
-
 .ministry-form input,
 .ministry-form textarea {
   width: 100%;
   padding: 0.85em 0.9em;
-  border: 2px solid #e6e6ca;
+  border: 2px solid var(--accent);
   border-radius: 8px;
   font-size: 1.09em;
   outline: none;
-  background: #fcfcf7;
+  background: var(--background);
   transition: border-color 0.2s;
   margin-bottom: 0.6em;
 }
-
 .ministry-form input:focus,
 .ministry-form textarea:focus {
-  border-color: var(--primary, #3366cc);
-  background: #fff;
+  border-color: var(--primary);
+  background: var(--background-light);
 }
-
 .ministry-form button {
-  background: var(--primary, #3366cc);
-  color: white;
+  background: var(--primary);
+  color: var(--background-light);
   border: none;
   padding: 0.9em 2em;
   border-radius: 8px;
@@ -185,20 +181,18 @@ body {
   font-weight: bold;
   cursor: pointer;
   margin-top: 1.2em;
-  box-shadow: 0 2px 6px rgba(51,102,204,0.1);
+  box-shadow: 0 2px 6px rgba(24,48,89,0.11);
   transition: background 0.2s;
 }
 .ministry-form button:hover {
-  background: var(--secondary, #f4b400);
-  color: var(--primary, #3366cc);
+  background: var(--secondary);
+  color: var(--primary);
 }
-
 .form-error {
   color: #d91b2b;
   font-size: 1em;
   margin-top: 0.5em;
 }
-
 .form-success {
   color: #1ba53f;
   font-size: 1em;
@@ -208,30 +202,26 @@ body {
 .section {
   min-height: 60vh;
   padding: 3rem 1rem;
-  scroll-margin-top: 70px; /* Offset for sticky navbar */
+  scroll-margin-top: 70px;
 }
-
 .home-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-
 .ministries-section {
-  background: #f5f5f5;
+  background: var(--background);
 }
-
 .add-section {
-  background: white;
+  background: var(--background-light);
 }
-
 .section-title {
   text-align: center;
   font-size: 2rem;
-  color: var(--primary, #3366cc);
+  color: var(--primary);
   margin-bottom: 2rem;
 }
 .ministry-image {
@@ -239,14 +229,14 @@ body {
   max-width: 350px;
   border-radius: 10px;
   margin-bottom: 0.8rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(24,48,89,0.07);
 }
 .profile-section {
-  background: #f9fcff;
+  background: var(--background-light);
   padding: 3rem 1rem;
   min-height: 40vh;
   text-align: center;
 }
 .profile-content img {
-  box-shadow: 0 2px 10px rgba(51,102,204,0.1);
+  box-shadow: 0 2px 10px rgba(24,48,89,0.08);
 }
